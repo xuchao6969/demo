@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+">
+
+    <bean class="com.xc.demo.spring.MyInstantiationAwareBeanPostProcessor" />
+
+    <bean id="userBean" class="com.xc.demo.spring.UserBean" init-method="myInit" destroy-method="myDestroy">
+        <!-- 构造函数注入 -->
+        <constructor-arg index="0" type="int">
+            <value>1</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value>userBean</value>
+        </constructor-arg>
+
+        <!-- setter方法注入 -->
+        <property name="id" value="2"/>
+        <property name="name" value="userBean"/>
+    </bean>
+
+    <bean class="com.xc.demo.spring.MyBeanPostProcessor" />
+
+    <bean class="com.xc.demo.spring.MyBeanFactoryPostProcessor" />
+    <bean class="com.xc.demo.spring.MyMergedBeanDefinitionPostProcessor" />
+
+    <bean id="prototypeBean" class="com.xc.demo.spring.PrototypeBean" destroy-method="myDestroy" scope="prototype">
+        <!-- 构造函数注入 -->
+        <constructor-arg index="0" type="int">
+            <value>1</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value>prototypeBean</value>
+        </constructor-arg>
+
+        <!-- setter方法注入 -->
+        <property name="id" value="2"/>
+        <property name="name" value="prototypeBean"/>
+    </bean>
+</beans>
