@@ -1,4 +1,4 @@
-package com.xc.demo.spring;
+package springBeanLifecycle;
 
 import org.springframework.beans.factory.support.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.factory.support.RootBeanDefinition;
