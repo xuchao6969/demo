@@ -13,8 +13,7 @@ public class TransactionController {
 
     @RequestMapping("/test")
     public void test(){
-//        transactionService.test();
-        transactionService.test1();
+        transactionService.test();
     }
 
 }
