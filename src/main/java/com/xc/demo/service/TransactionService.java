@@ -125,6 +125,26 @@ public class TransactionService {
         ts.saveFalseWithTransactionAnnotation();
     }
 
+    /**
+     * condition: saveFalseWithTransactionAnnotation 发生异常 有事务注解 隔离级别supports 代理调用
+     * conclusion: 外部事务生效 saveFalseWithTransactionAnnotation执行失败，事务回滚
+     */
+    @Transactional
+    public void test11(){
+        TransactionService ts = (TransactionService) AopContext.currentProxy();
+        ts.saveFalseWithTransactionAnnotation();
+    }
+
+    /**
+     * condition: saveFalseWithTransactionAnnotation 发生异常 有事务注解 隔离级别supports 代理调用
+     * conclusion: saveFalseWithTransactionAnnotation执行错误，第一行执行成功，事务并未回滚
+     */
+    public void test12(){
+        TransactionService ts = (TransactionService) AopContext.currentProxy();
+        ts.saveFalseWithTransactionAnnotation();
+    }
+
+
     @Transactional(propagation = Propagation.REQUIRED)
     public void saveTrueWithTransactionAnnotation(){
         mapper.insertFoo("a", "foo1");

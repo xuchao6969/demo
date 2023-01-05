@@ -17,6 +17,6 @@ mybatis:
     - classpath:/mapper/*.xml
 logging:
   level:
-    org.springframework.orm.jpa: INFO
-    org.springframework.transaction: INFO
-    org.springframework.jdbc: INFO
+    org.springframework.orm.jpa: info
+    org.springframework.transaction: debug
+    org.springframework.jdbc: debug
