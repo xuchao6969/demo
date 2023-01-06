@@ -145,6 +145,48 @@ public class TransactionService {
     }
 
 
+    /**
+     * condition: saveTrueWithTransactionAnnotation 不发生异常 有事务注解 隔离级别required 代理调用
+     * condition: saveFalseWithTransactionAnnotation 发生异常 有事务注解 隔离级别nested 代理调用
+     * conclusion: saveTrueWithTransactionAnnotation执行成功，事务提交；saveFalseWithTransactionAnnotation的事务回滚
+     */
+    @Transactional
+    public void test13(){
+        TransactionService ts = (TransactionService) AopContext.currentProxy();
+        ts.saveTrueWithTransactionAnnotation();
+        try {
+            ts.saveFalseWithTransactionAnnotation();
+        } catch (Exception e) { System.out.println("捕获异常信息"); }
+    }
+
+    /**
+     * condition: saveTrueWithTransactionAnnotation 不发生异常 有事务注解 隔离级别required 代理调用
+     * condition: saveFalseWithTransactionAnnotation 发生异常 有事务注解 隔离级别required 代理调用
+     * conclusion: 外部事务成功，两个子事务全部执行失败，整体回滚
+     */
+    @Transactional
+    public void test14(){
+        TransactionService ts = (TransactionService) AopContext.currentProxy();
+        ts.saveTrueWithTransactionAnnotation();
+        try {
+            ts.saveFalseWithTransactionAnnotation();
+        } catch (Exception e) { System.out.println("捕获异常信息"); }
+    }
+
+    /**
+     * condition: saveTrueWithTransactionAnnotation 不发生异常 有事务注解 隔离级别required 代理调用
+     * condition: saveFalseWithTransactionAnnotation 发生异常 有事务注解 隔离级别requires_new 代理调用
+     * conclusion: 外部事务成功，saveTrueWithTransactionAnnotation执行成功，事务提交；saveFalseWithTransactionAnnotation的事务回滚
+     */
+    @Transactional
+    public void test15(){
+        TransactionService ts = (TransactionService) AopContext.currentProxy();
+        ts.saveTrueWithTransactionAnnotation();
+        try {
+            ts.saveFalseWithTransactionAnnotation();
+        } catch (Exception e) { System.out.println("捕获异常信息"); }
+    }
+
     @Transactional(propagation = Propagation.REQUIRED)
     public void saveTrueWithTransactionAnnotation(){
         mapper.insertFoo("a", "foo1");
