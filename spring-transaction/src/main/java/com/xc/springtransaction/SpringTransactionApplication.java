@@ -13,7 +13,7 @@ public class SpringTransactionApplication {
         ConfigurableApplicationContext ca =
         SpringApplication.run(SpringTransactionApplication.class, args);
         TransactionService uc = (TransactionService) ca.getBean("transactionService");
-        System.out.println(uc);
+        uc.test16();
     }
 
 

@@ -215,6 +215,6 @@ public class TransactionService {
     public void test16() {
         TransactionService ts = (TransactionService) AopContext.currentProxy();
         ts.saveTrueWithTransactionAnnotation();
-//        throw new RuntimeException("AAA");
+        throw new RuntimeException("AAA");
     }
 }
