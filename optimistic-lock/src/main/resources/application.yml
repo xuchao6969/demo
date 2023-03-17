@@ -1,0 +1,21 @@
+
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2b8
+
+
+mybatis:
+  configLocation: classpath:/MyBatis-conf.xml
+  mapperLocations:
+    - classpath:/mapper/*.xml
+logging:
+  level:
+    org.springframework.orm.jpa: info
+    org.springframework.transaction: debug
+    org.springframework.jdbc: debug
+
