@@ -4,12 +4,10 @@ import com.xc.optimisticlock.entity.NumberSource;
 import com.xc.optimisticlock.entity.Order;
 import com.xc.optimisticlock.mapper.NumberSourceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@EnableAspectJAutoProxy(exposeProxy = true)
 public class NumberSourceService {
     @Autowired
     private NumberSourceMapper mapper;
