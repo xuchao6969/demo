@@ -5,4 +5,6 @@
 
 ## 项目介绍
 * spring-bean spring生命周期相关的代码
+* spring-transaction事务管理相关的代码
+* optimistic-lock乐观锁实现的预约挂号防止号源超卖
 
