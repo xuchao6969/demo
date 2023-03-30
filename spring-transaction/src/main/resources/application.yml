@@ -14,6 +14,7 @@ mybatis:
     - classpath:/mapper/*.xml
 logging:
   level:
-    org.springframework.orm.jpa: info
-    org.springframework.transaction: debug
-    org.springframework.jdbc: debug
+    root: debug #调试的时候使用debug  trace打印更多日志
+#  pattern:
+# 打印行号
+#    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M:%L - %msg%n'

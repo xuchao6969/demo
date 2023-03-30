@@ -10,10 +10,10 @@ public class SpringTransactionApplication {
 
     public static void main(String[] args) {
         //获取springboot启动后spring 应用配置的上下文
-        ConfigurableApplicationContext ca =
+//        ConfigurableApplicationContext ca =
         SpringApplication.run(SpringTransactionApplication.class, args);
-        TransactionService uc = (TransactionService) ca.getBean("transactionService");
-        uc.test16();
+//        TransactionService uc = (TransactionService) ca.getBean("transactionService");
+//        uc.test16();
     }
 
 
