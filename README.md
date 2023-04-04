@@ -8,3 +8,4 @@
 * spring-transaction事务管理相关的代码
 * optimistic-lock乐观锁实现的预约挂号防止号源超卖
 * design-pattern设计模式相关的demo
+* cloud-demo基于springcloudalibaba和seata实现的分布式事务demo

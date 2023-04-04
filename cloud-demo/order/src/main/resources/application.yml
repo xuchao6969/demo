@@ -1,0 +1,55 @@
+server:
+  port: 8081
+#  tomcat:
+#    max-threads: 10
+spring:
+  application:
+    name: order-server  #服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #nacos的服务注册中心地址
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8090
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_demo?useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2b8
+    username: root
+    password: root
+
+  #jpa配置
+  jpa:
+    hibernate:
+      #指定DDL mode (none, validate, update, create, create-drop). 当使用内嵌数据库时，默认是create-drop，否则为none
+      ddlAuto: none
+    #是否开启sql的log，默认为: false
+    showSql: false
+    #指定目标数据库的类型
+    databasePlatform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+
+
+seata:
+  enabled: true
+#  application-id: order-server
+  enable-auto-data-source-proxy: true
+  tx-service-group: xc_tx_group
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace:
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
