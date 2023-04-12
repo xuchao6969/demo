@@ -6,3 +6,4 @@
 * java 23种设计模式
 * singleton单例模式
 * factory工厂模式(simpleFactory简单工厂 factoryMethod工厂方法 abstractFactory抽象工厂)
+* chiainOfResponsibility责任链模式
