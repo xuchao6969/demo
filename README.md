@@ -11,4 +11,5 @@
 * design-pattern设计模式相关的demo
 * cloud-demo基于springcloudalibaba和seata实现的分布式事务demo
 * cloud-demo-hignVersion基于springcloudalibaba和seata实现的分布式事务demo，高版本，重点是没有依赖排除，都兼容
+* spring-circular-dependency循环依赖
 
